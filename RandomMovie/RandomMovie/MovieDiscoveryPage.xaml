@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             Title="Discover"
+             mc:Ignorable="d"
+             x:Class="RandomMovie.MovieDiscoveryPage"
+             IconImageSource="searchIcon.png"
+             >
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label 
+                x:Name="searchLabel"
+                Text="Enter movie name : "
+                />
+
+            <Entry 
+                Placeholder="Movie title"
+                Text="{Binding SearchParam}"
+                />
+
+            <Button 
+                Text="Search"
+                Command="{Binding SearchCommand}"
+                CommandParameter="{Binding SearchParam}"
+                />
+
+            <Label Text="{Binding CurrentMovie.Title}" HorizontalOptions="CenterAndExpand" FontSize="22"/>
+            <Label Text="{Binding CurrentMovie.Year,StringFormat='Year : {0}'}" HorizontalOptions="EndAndExpand" FontSize="14"/>
+            <Label Text="{Binding CurrentMovie.Genre}" HorizontalOptions="CenterAndExpand" FontSize="22"/>
+            <Label Text="{Binding CurrentMovie.Actors}" HorizontalOptions="CenterAndExpand" FontSize="18"/>
+            
+            <Label 
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand"
+                HorizontalTextAlignment="Center"
+                TextColor="White"
+                Text="Disconnected"
+                Opacity="0"
+                BackgroundColor="Red"
+                x:Name="connectionStatusLabel"
+                />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
